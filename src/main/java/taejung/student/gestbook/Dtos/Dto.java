@@ -1,8 +1,9 @@
-package taejung.student.gestbook;
+package taejung.student.gestbook.Dtos;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import taejung.student.gestbook.Article;
 
 @Getter
 @Setter
