@@ -30,14 +30,11 @@ var main = {
             alert(error);
         });
     },
-    _delete : function (id) {
-        var data = {
-            _id : id
-        };
-
+    _delete : function () {
+        var _id =  $("#update").attr("name");
         $.ajax({
             type: 'GET',
-            url: '/delete/'+Number(_id),
+            url: '/delete/'+_id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8'
         }).done(function() {
@@ -47,16 +44,16 @@ var main = {
             alert(error);
         });
     },
-    edit : function (id) {
+    edit : function () {
+        var _id =  $("#update").attr("name");
         var data = {
-            _id : id,
             title: $('#title').val(),
             content: $('#content').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/update/'+Number(_id),
+            url: '/update/'+_id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
