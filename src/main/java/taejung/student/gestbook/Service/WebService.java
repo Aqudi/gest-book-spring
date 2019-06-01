@@ -42,7 +42,4 @@ public class WebService {
                 .collect(Collectors.toList());
     }
 
-    public Article get(Long id){
-        return articleRepository.getOne(id);
-    }
 }

@@ -23,7 +23,7 @@ public class RestWebController {
         return webService.save(dto);
     }
 
-    @PostMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public Long deleteArticle(@PathVariable Long id){
         return webService.delete(id);
     }
@@ -33,8 +33,4 @@ public class RestWebController {
         return webService.update(id, dto);
     }
 
-    @GetMapping("/get/{id}")
-    public Article getArticle(@PathVariable Long id){
-        return webService.get(id);
-    }
 }
