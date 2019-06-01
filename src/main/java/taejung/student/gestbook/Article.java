@@ -1,20 +1,19 @@
 package taejung.student.gestbook;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity // 데이터 베이스에 저장될 클래스임을 명시함
-@Builder // lombok의 기능 Builder 모델의 패턴 적용을 쉽게 해준다.
 @Getter // lombok의 기능 Getter를 추가해준다.
 public class Article {
 
     @Id // 글 들을 구분할 구분자라고 생각하면됨
-    @GeneratedValue // 자동생성
+    @GeneratedValue(strategy = GenerationType.AUTO) // 자동생성
     private Long id;
 
     @Column(length=20, nullable = false)
@@ -26,5 +25,11 @@ public class Article {
     @Override
     public String toString(){
         return "제목 : " + title + "\n내용 : " + content;
+    }
+
+    @Builder // lombok의 기능 Builder 모델의 패턴 적용을 쉽게 해준다.
+    Article(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
