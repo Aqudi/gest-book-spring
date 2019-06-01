@@ -1,9 +1,6 @@
 package taejung.student.gestbook;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -17,9 +14,11 @@ public class Article {
     private Long id;
 
     @Column(length=20, nullable = false)
+    @Setter
     private String title;
 
     @Column(columnDefinition = "TEXT", nullable = false)
+    @Setter
     private String content;
 
     @Override
