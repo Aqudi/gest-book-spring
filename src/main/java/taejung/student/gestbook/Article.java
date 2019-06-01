@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity // 데이터 베이스에 저장될 클래스임을 명시함
 @Getter // lombok의 기능 Getter를 추가해준다.
+@Entity // 데이터 베이스에 저장될 클래스임을 명시함
 public class Article {
 
     @Id // 글 들을 구분할 구분자라고 생각하면됨
@@ -28,7 +28,7 @@ public class Article {
     }
 
     @Builder // lombok의 기능 Builder 모델의 패턴 적용을 쉽게 해준다.
-    Article(String title, String content) {
+    public Article(String title, String content) {
         this.title = title;
         this.content = content;
     }
